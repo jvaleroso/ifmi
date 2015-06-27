@@ -1,0 +1,9 @@
+*.suo
+Ifmi.Core/bin/
+Ifmi.Core/obj/
+Ifmi.Infrastructure/bin/
+Ifmi.Infrastructure/obj/
+Ifmi.Web/bin/
+Ifmi.Web/obj/
+packages/
+*.map

@@ -1,0 +1,68 @@
+﻿@using System.Reflection
+@using System.Web.Configuration
+@using System.Web.Optimization
+@using Ifmi.Web.Controllers
+<!DOCTYPE html>
+<html ng-app="ifmiApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - International Financial Markets Institute</title>
+    @Styles.Render(
+    "~/Content/bootstrap")
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#/home" class="navbar-brand">
+                    <b>IFMI</b>
+                    <small>1.0.0 Build 1</small>
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" ng-controller="NavigationController as navigationCtrl">
+                    <li ng-class="{'active': navigationCtrl.getClass('/home')}">
+                        <a href="#/home">Home</a>
+                    </li>
+                    <li ng-class="{'active': navigationCtrl.getClass('/news')}">
+                        <a href="#/news">News</a>
+                    </li>
+                    <li ng-class="{'active': navigationCtrl.getClass('/markets')}">
+                        <a href="#/markets">Markets</a>
+                    </li>
+                    <li ng-class="{'active': navigationCtrl.getClass('/insights')}">
+                        <a href="#/insights">Insights</a>
+                    </li>
+                    <li ng-class="{'active': navigationCtrl.getClass('/videos')}">
+                        <a href="#/videos">Videos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - International Financial Markets Institute</p>
+        </footer>
+    </div>
+
+    @Scripts.Render(
+            "~/bundles/jquery",
+            "~/bundles/jqueryval",
+            "~/bundles/modernizr",
+            "~/bundles/bootstrap",
+            "~/bundles/angular",
+            "~/bundles/ifmiApp")
+</body>
+</html>
